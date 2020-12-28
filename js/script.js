@@ -60,7 +60,7 @@ var colors = [
  * `getRandomQuote` function
 ***/
 
-
+// A function to return a quote from the quotes array.
 let getRandomQuote = () => {
   let randomNumber = Math.floor((Math.random() * quotes.length));
   return quotes[randomNumber];
@@ -68,6 +68,8 @@ let getRandomQuote = () => {
 /***
  * `printQuote` function
 ***/
+
+// Manipulating the DOM to display the wanted information to the page.
 let printQuote = () => {
   let quoteBox = document.getElementById("quote-box")
   let randomQuotes = getRandomQuote();
@@ -75,6 +77,7 @@ let printQuote = () => {
   let randomCol = colors[randomNumber];
   
   document.body.style.background = randomCol;
+  // String Interpolation easier way to manipulate the DOM.
   let tags = `
   <p class="quote">${randomQuotes.quote}</p>
   <p class="source">${randomQuotes.source}
@@ -85,6 +88,7 @@ let printQuote = () => {
   return html;
 }
 
+// setInterval, a JavaScript built-in function to keep running the printQuote() function every 1.5seconds.
 setInterval(()=>{
   printQuote();
 }, 15000)
