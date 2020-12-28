@@ -16,35 +16,35 @@ let quotes = [
     source:"Ernest Hemingway",
     citation:"The Quotation Page",
     year:"1899 - 1961",
-    tags:"Tag #1"
+    tags:"Age"
   },
   {
     quote: "Take the diplomacy out of war and the thing would fall flat in a week.",
     source:"Will Rogers",
     citation:"The Quotation Page",
     year:"1879 - 1935",
-    tags:"Tag #2"
+    tags:"War"
   },
   {
     quote: "This is the challenge of writing. You have to be very emotionally engaged in what you’re doing, or it comes out flat. You can’t fake your way through this.",
     source:"Gordon Atkinson",
     citation:"The Quotation Page",
     year:"2004",
-    tags:"Tag #3"
+    tags:"Writing"
   },
   {
     quote: "The only function of economic forecasting is to make astrology look respectable.",
     source:"John Kenneth Galbraith",
     citation:"The Quotation Page",
     year:"1908 - 2006",
-    tags:"Tag #4"
+    tags:"Science"
   },
   {
     quote: "Cherish each hour of this day for it can never return.",
     source:"Og Mandino",
     citation:"The Quotation Page",
     year:"1923 - 1996",
-    tags:"Tag #5"
+    tags:"Life"
   },
 ]
 
@@ -78,7 +78,7 @@ let printQuote = () => {
   let tags = `
   <p class="quote">${randomQuotes.quote}</p>
   <p class="source">${randomQuotes.source}
-  <span class="citation">${randomQuotes.citation}</span>
+  <span class="citation">${randomQuotes.citation} - Tag: ${randomQuotes.tags}</span>
   <span class="year">${randomQuotes.year}</span></p>
   `
   let html = quoteBox.innerHTML = tags;
