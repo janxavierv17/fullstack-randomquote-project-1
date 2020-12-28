@@ -46,36 +46,27 @@ let quotes = [
 /***
  * `getRandomQuote` function
 ***/
-// console.log(quotes)
-let getRandomQuote = (quotesArray) => {
-  let randomNumber = Math.floor((Math.random() * 4) + 1);
-  return quotesArray[randomNumber];
+let getRandomQuote = () => {
+  let randomNumber = Math.floor((Math.random() * quotes.length));
+  return quotes[randomNumber];
 }
-
-let randomQuotes = getRandomQuote(quotes)
 /***
  * `printQuote` function
 ***/
-
-let printQuote = (randomQuote) => {
+let printQuote = () => {
   let quoteBox = document.getElementById("quote-box")
-  let quote = randomQuote.quote;
-  let source = randomQuote.source;
-  let citation = randomQuote.citation;
-  let year = randomQuote.year
+  let randomQuotes = getRandomQuote();
 
   let tags = `
-  <p class="quote">${quote}</p>
-  <p class="source">${source}
-  <span class="citation">${citation}</span>
-  <span class="year">${year}</span></p>
+  <p class="quote">${randomQuotes.quote}</p>
+  <p class="source">${randomQuotes.source}
+  <span class="citation">${randomQuotes.citation}</span>
+  <span class="year">${randomQuotes.year}</span></p>
   `
-
   let html = quoteBox.innerHTML = tags;
   return html;
 }
 
-printQuote(randomQuotes)
 
 /***
  * click event listener for the print quote button
