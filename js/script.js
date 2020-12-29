@@ -1,15 +1,4 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
-
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/*** 
- * `quotes` array 
-***/
+// Quotes array with Object and Properties to display.
 let quotes = [
   {
     quote: "That is the greatest fallacy, the wisdom of old men. They do not grow wise. They grow careful.",
@@ -47,7 +36,8 @@ let quotes = [
     tags:"Life"
   },
 ]
-
+// An array of colors to be used for a function 
+// that randomly changes the bg color of the body
 var colors = [
   "#E0BBE4",
   "#957DAD",
@@ -56,27 +46,22 @@ var colors = [
   "#FEC8D8",
   "#FFDFD3",
 ];
-/***
- * `getRandomQuote` function
-***/
 
-// A function to return a quote from the quotes array.
+// A function that returns a random quote with the help of JS's Math function.
 let getRandomQuote = () => {
   let randomNumber = Math.floor((Math.random() * quotes.length));
   return quotes[randomNumber];
 }
-/***
- * `printQuote` function
-***/
 
 // Manipulating the DOM to display the wanted information to the page.
 let printQuote = () => {
-  let quoteBox = document.getElementById("quote-box")
-  let randomQuotes = getRandomQuote();
+  let quoteBox = document.getElementById("quote-box");
+  let randomQuotes = getRandomQuote(); //Everytime we run printQuote it will generate a random quote for us.
   let randomNumber = Math.floor((Math.random() * quotes.length));
   let randomCol = colors[randomNumber];
   
-  document.body.style.background = randomCol;
+  document.body.style.background = randomCol; // Fpr randomly changing the bg color of the body.
+  
   // String Interpolation easier way to manipulate the DOM.
   let tags = `
   <p class="quote">${randomQuotes.quote}</p>
@@ -88,7 +73,7 @@ let printQuote = () => {
   return html;
 }
 
-// setInterval, a JavaScript built-in function to keep running the printQuote() function every 1.5seconds.
+// A set interval function to keep invoking printQuote function every 1.5seconds
 setInterval(()=>{
   printQuote();
 }, 15000)
